@@ -18,6 +18,8 @@ Set the following values:
     git config --global corp.org "value to search for in git ref to identify the corp repo"
     git config --global corp.ssh "ssh config filename inside of $HOME/.ssh/ to use"
 
+The `corp.org` supports multiple values to search for, separated by `;`, like `org1;org2`
+
 ## See also
 
 [git.corp](https://github.com/diffsky/git.corp) to ensure you always commit as your corp user account
