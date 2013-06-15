@@ -5,7 +5,7 @@ Automatically use a specific ssh config file when working with certain github (c
 ## Usage
 
 - Clone the repo
-- `export GIT_SSH` to `git-ssh.sh` # for example, in your bash profile
+- `export GIT_SSH=path/to/git-ssh.sh` # for example, in your bash profile
 
 `git-ssh.sh` checks the git operation for a specified match (specified in your global git config).
 If a *corporate* repo is detected it will use a specified ssh config for the operation. This allows
