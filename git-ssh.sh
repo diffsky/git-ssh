@@ -10,8 +10,4 @@ for i in "${ADDR[@]}"; do
     break
   fi
 done
-if [ -z "config" ];then
-  exec ssh "$@"
-else
-  exec ssh -F "$HOME/.ssh/$config" "$@"
-fi
+exec ssh -F "$HOME/.ssh/$config" "$@"
