@@ -7,7 +7,11 @@ IFS=';' read -ra ADDR <<< "$GIT_CORP_ORG"
 for i in "${ADDR[@]}"; do
   if [[ "$@" == *"${i}"* ]]; then
     config="${CORP_SSH}"
+    break
   fi
 done
-
-exec ssh -F "$HOME/.ssh/$config" "$@"
+if [ -z "config" ];then
+  exec ssh "$@"
+else
+  exec ssh -F "$HOME/.ssh/$config" "$@"
+fi
