@@ -3,7 +3,7 @@ config="config"
 
 # vagrant workaround for no $HOME in env causing git to fail
 if [ -z "$HOME" ]; then
-  HOME="/home/$(whoami)"
+  export HOME="/home/$(whoami)"
 fi
 
 GIT_CORP_ORG=$(/usr/bin/git config --global corp.org)
