@@ -1,7 +1,13 @@
 #!/bin/sh
 config="config"
-GIT_CORP_ORG=$(git config --global corp.org)
-CORP_SSH=$(git config --global corp.ssh)
+
+# vagrant workaround for no $HOME in env causing git to fail
+if [ -z "$HOME" ]; then
+  HOME="/home/$(whoami)"
+fi
+
+GIT_CORP_ORG=$(/usr/bin/git config --global corp.org)
+CORP_SSH=$(/usr/bin/git config --global corp.ssh)
 
 IFS=';' read -ra ADDR <<< "$GIT_CORP_ORG"
 for i in "${ADDR[@]}"; do
