@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+# http://stackoverflow.com/questions/2462317/bash-syntax-error-redirection-unexpected
 config="config"
 
 # vagrant workaround for no $HOME in env causing git to fail
