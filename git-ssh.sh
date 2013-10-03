@@ -1,6 +1,9 @@
 #!/bin/bash
 # http://stackoverflow.com/questions/2462317/bash-syntax-error-redirection-unexpected
 config="config"
+if [ -z "GIT_PATH" ];then
+  GIT_PATH=$(which git)
+fi
 
 # vagrant workaround for no $HOME in env causing git to fail
 if [ -z "$HOME" ]; then
@@ -11,8 +14,8 @@ if [ -z "$HOME" ]; then
   fi
 fi
 
-GIT_CORP_ORG=$(/usr/bin/git config --global corp.org)
-CORP_SSH=$(/usr/bin/git config --global corp.ssh)
+GIT_CORP_ORG=$($GIT_PATH config --global corp.org)
+CORP_SSH=$($GIT_PATH config --global corp.ssh)
 
 IFS=';' read -ra ADDR <<< "$GIT_CORP_ORG"
 for i in "${ADDR[@]}"; do
