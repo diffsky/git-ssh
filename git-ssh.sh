@@ -1,8 +1,8 @@
 #!/bin/bash
 # http://stackoverflow.com/questions/2462317/bash-syntax-error-redirection-unexpected
 config="config"
-if [ -z "GIT_PATH" ];then
-  GIT_PATH=$(which git)
+if [ -z "$GIT_PATH" ];then
+  export GIT_PATH=$(which git)
 fi
 
 # vagrant workaround for no $HOME in env causing git to fail
