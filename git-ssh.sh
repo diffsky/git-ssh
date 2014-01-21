@@ -2,7 +2,8 @@
 # http://stackoverflow.com/questions/2462317/bash-syntax-error-redirection-unexpected
 config="config"
 if [ -z "$GIT_PATH" ];then
-  hash git 2>&- && { export GIT_PATH=$(which git); }
+  hash git 2>&- || { echo >&2 "git is not installed.  Aborting."; exit 1; }
+  export GIT_PATH=$(which git)
 fi
 
 # vagrant workaround for no $HOME in env causing git to fail
